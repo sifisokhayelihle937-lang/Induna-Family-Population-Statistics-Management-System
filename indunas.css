@@ -1,0 +1,481 @@
+/* ======================================================
+   VILLAGE INDUNA MANAGEMENT  -  compact, no scroll, refined
+====================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+    --gold:#8c763d;
+    --navy:#00497f;
+    --navy-light:#005a9e;
+    --navy-dark:#003a66;
+    --green:#2e7d32;
+    --dark:#2f2b2a;
+    --white:#ffffff;
+    --bg:#f1f4f8;
+    --border:#e3e8ee;
+    --text:#1b2430;
+    --muted:#66727f;
+    --shadow:0 2px 10px rgba(16,36,64,.08);
+    --gap:14px;
+    --pad:20px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Inter","Segoe UI",Arial,sans-serif;
+}
+
+html,body{
+    height:100%;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-size:13px;
+    overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+}
+
+/* =====================================
+   PAGE CONTAINER  (fills the screen)
+===================================== */
+
+.page-container{
+    width:100%;
+    height:100vh;
+}
+
+.induna-content{
+    height:100vh;
+    padding:0 var(--pad) 18px;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    grid-template-rows:auto auto auto minmax(0,1fr);
+    gap:var(--gap);
+}
+
+/* =====================================
+   TOP BAR
+===================================== */
+
+.topbar{
+    grid-column:1 / -1;
+    margin:0 calc(var(--pad) * -1);
+    background:var(--dark);
+    border-top:3px solid var(--navy-light);
+    height:58px;
+    padding:0 var(--pad);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.topbar h2{
+    color:#ffffff;
+    font-size:16px;
+    font-weight:600;
+}
+
+.profile-section{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    font-weight:500;
+    color:#ffffff;
+    background:rgba(255,255,255,.08);
+    padding:6px 14px 6px 10px;
+    border-radius:30px;
+}
+
+.profile-section i{
+    font-size:18px;
+    color:#ffffff;
+}
+
+/* =====================================
+   DASHBOARD CARDS
+===================================== */
+
+.stats-grid{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:var(--gap);
+}
+
+.stat-card{
+    background:white;
+    border:1px solid var(--border);
+    border-top:5px solid var(--navy);
+    border-radius:18px 18px 14px 14px;
+    padding:12px 16px;
+    display:flex;
+    gap:13px;
+    align-items:center;
+    box-shadow:var(--shadow);
+    transition:transform .25s, box-shadow .25s;
+    min-width:0;
+}
+
+.stat-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 18px rgba(16,36,64,.13);
+}
+
+.stat-icon{
+    width:44px;
+    height:44px;
+    background:linear-gradient(135deg,var(--navy-dark),var(--navy-light));
+    color:white;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:17px;
+    flex-shrink:0;
+}
+
+.stat-card > div:last-child{
+    min-width:0;
+}
+
+.stat-card h4{
+    color:var(--muted);
+    font-size:11px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+.stat-card h2{
+    color:var(--green);
+    font-size:20px;
+    font-weight:800;
+    margin:1px 0;
+    line-height:1.15;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.stat-card small{
+    color:var(--muted);
+    font-size:11.5px;
+}
+
+/* =====================================
+   PANELS
+===================================== */
+
+.content-panel{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:14px 18px;
+    box-shadow:var(--shadow);
+    min-height:0;
+}
+
+.panel-header{
+    margin-bottom:10px;
+    flex-shrink:0;
+}
+
+.panel-header h2{
+    color:var(--navy);
+    font-size:15px;
+    font-weight:700;
+}
+
+/* current induna panel (left, row 3) */
+.stats-grid + .content-panel{
+    grid-column:1;
+    grid-row:3;
+}
+
+/* manage status panel (right, row 3) */
+.content-panel + .content-panel:not(#assignPanel){
+    grid-column:2;
+    grid-row:3;
+}
+
+/* register panel (full width, row 4) */
+#assignPanel{
+    grid-column:1 / -1;
+    grid-row:4;
+    display:flex;
+    flex-direction:column;
+}
+
+/* =====================================
+   CURRENT INDUNA CARD
+===================================== */
+
+.current-induna-card{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    padding:12px 16px;
+    border-left:5px solid var(--navy);
+    background:#fafbfd;
+    border-radius:14px;
+}
+
+.crown-icon{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--navy-dark),var(--navy-light));
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    flex-shrink:0;
+}
+
+.induna-info{
+    flex:1;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px 18px;
+}
+
+.induna-info p{
+    font-size:12px;
+    color:var(--muted);
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    word-break:break-word;
+}
+
+.induna-info strong{
+    color:var(--text);
+    font-size:11px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+}
+
+.induna-info span{
+    font-size:12.5px;
+    color:var(--text);
+    font-weight:500;
+}
+
+/* =====================================
+   SECTION TITLES
+===================================== */
+
+.section-title{
+    color:var(--gold);
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+    padding-bottom:6px;
+    border-bottom:2px solid #f0f2f5;
+}
+
+/* =====================================
+   FORM GRID
+===================================== */
+
+.grid-2{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.field-group{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+}
+
+.field-group label{
+    margin-bottom:4px;
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--muted);
+}
+
+.field-group input,
+.field-group select{
+    width:100%;
+    padding:8px 11px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    background:white;
+    outline:none;
+    font-size:12.5px;
+    color:var(--text);
+    transition:.2s;
+}
+
+.field-group input:focus,
+.field-group select:focus{
+    border-color:var(--navy-light);
+    box-shadow:0 0 0 3px rgba(0,90,158,.14);
+}
+
+.field-group input[readonly]{
+    background:#f3f6fa;
+    color:var(--muted);
+}
+
+/* Register form: fields flow in 4 columns to save height */
+#assignIndunaForm{
+    flex:1;
+    min-height:0;
+    overflow-y:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px 14px;
+    align-content:start;
+    scrollbar-width:thin;
+    scrollbar-color:#cfd6de transparent;
+}
+
+#assignIndunaForm .grid-2{
+    display:contents;
+}
+
+#assignIndunaForm .section-title,
+#assignIndunaForm hr,
+#assignIndunaForm .button-area{
+    grid-column:1 / -1;
+}
+
+/* =====================================
+   DIVIDER
+===================================== */
+
+hr{
+    margin:0;
+    border:none;
+    border-top:1px solid var(--border);
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+.button-area{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:2px;
+}
+
+#assignBtn,
+#updateStatusBtn{
+    background:linear-gradient(135deg,var(--navy-dark),var(--navy-light));
+    color:white;
+    border:none;
+    padding:9px 28px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:.2px;
+    transition:transform .2s, box-shadow .2s;
+}
+
+#assignBtn:hover,
+#updateStatusBtn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 6px 14px rgba(0,73,127,.28);
+}
+
+#updateStatusBtn{
+    width:100%;
+}
+
+/* =====================================
+   SHORT SCREENS
+===================================== */
+
+@media(max-height:780px){
+
+    :root{
+        --gap:10px;
+    }
+
+    .topbar{ height:50px; }
+    .stat-card{ padding:8px 14px; }
+    .stat-icon{ width:36px; height:36px; font-size:14px; }
+    .stat-card h2{ font-size:17px; }
+    .content-panel{ padding:10px 16px; }
+    .crown-icon{ width:46px; height:46px; font-size:18px; }
+    .field-group input,
+    .field-group select{ padding:6px 10px; }
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media(max-width:1100px){
+
+    #assignIndunaForm{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .induna-info{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:900px){
+
+    html,body{ height:auto; }
+    body{ overflow:auto; }
+
+    .page-container,
+    .induna-content{
+        height:auto;
+    }
+
+    .induna-content{
+        display:flex;
+        flex-direction:column;
+        padding-bottom:20px;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    #assignIndunaForm{
+        overflow:visible;
+    }
+
+    .current-induna-card{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .topbar{
+        flex-direction:column;
+        justify-content:center;
+        gap:6px;
+        height:auto;
+        padding:12px var(--pad);
+    }
+}
+
+@media(max-width:560px){
+
+    #assignIndunaForm,
+    .induna-info{
+        grid-template-columns:1fr;
+    }
+}

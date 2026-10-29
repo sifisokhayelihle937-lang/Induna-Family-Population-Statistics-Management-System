@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resident Dashboard</title>
+
+    <link rel="stylesheet" href="Resident.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo-section">
+            <h2>IPMS</h2>
+            <span>Resident Portal</span>
+        </div>
+
+        <ul class="menu">
+
+            <li class="active">
+                <a href="Resident.html">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <!-- MEMBERS -->
+
+            <li>
+
+                <a href="#" id="membersMenu">
+
+                    <i class="fas fa-users"></i>
+
+                    Members
+
+                    <span class="arrow">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+
+                </a>
+
+                <ul class="submenu" id="membersSubmenu">
+
+                    <li>
+                        <a href="Members.html">
+                            Manage
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <!-- ACTIVITIES -->
+
+            <li>
+
+                <a href="#" id="activitiesMenu">
+
+                    <i class="fas fa-calendar-check"></i>
+
+                    Activities
+
+                    <span class="arrow">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+
+                </a>
+
+                <ul class="submenu" id="activitiesSubmenu">
+
+                    <li>
+                        <a href="Activities.html">
+                            Report
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <!-- TECHNICAL ISSUES -->
+
+            <li>
+
+                <a href="#" id="issuesMenu">
+
+                    <i class="fas fa-screwdriver-wrench"></i>
+
+                    Technical Issues
+
+                    <span class="arrow">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+
+                </a>
+
+                <ul class="submenu" id="issuesSubmenu">
+
+                    <li>
+                        <a href="Issues.html">
+                            Report
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <!-- PROFILE -->
+
+            <li>
+                <a href="Profile.html">
+
+                    <i class="fas fa-user"></i>
+
+                    My Profile
+
+                </a>
+            </li>
+
+            <!-- LOGOUT -->
+
+            <li>
+
+                <a href="#" onclick="logout()">
+
+                    <i class="fas fa-right-from-bracket"></i>
+
+                    Logout
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+
+        <div class="topbar">
+
+            <h2>Resident Dashboard</h2>
+
+            <div class="profile-section">
+
+                <i class="fas fa-user-circle"></i>
+
+                <span id="residentName">
+                    Loading...
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- WELCOME -->
+
+        <section class="welcome-banner">
+
+            <div class="welcome-icon">
+                🏠
+            </div>
+
+            <div>
+
+                <h2>
+
+                    Welcome Back,
+
+                    <span id="welcomeName">
+                        Loading...
+                    </span>
+
+                </h2>
+
+                <p>
+
+                    Household:
+                    <strong id="householdNumber">
+                        Loading...
+                    </strong>
+
+                    |
+
+                    Village:
+                    <strong id="villageName">
+                        Loading...
+                    </strong>
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- DASHBOARD CARDS -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👨‍👩‍👧‍👦
+                </div>
+
+                <div>
+
+                    <h4>Total Family Members</h4>
+
+                    <h2 id="totalMembers">
+                        0
+                    </h2>
+
+                    <small>
+                        Household Members
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⚰️
+                </div>
+
+                <div>
+
+                    <h4>Total Deceased</h4>
+
+                    <h2 id="totalDeceased">
+                        0
+                    </h2>
+
+                    <small>
+                        Family Records
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🚚
+                </div>
+
+                <div>
+
+                    <h4>Total Relocated</h4>
+
+                    <h2 id="totalRelocated">
+                        0
+                    </h2>
+
+                    <small>
+                        Relocated Members
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🎪
+                </div>
+
+                <div>
+
+                    <h4>Reported Activities</h4>
+
+                    <h2 id="reportedActivities">
+                        0
+                    </h2>
+
+                    <small>
+                        Submitted Activities
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🛠️
+                </div>
+
+                <div>
+
+                    <h4>Reported Issues</h4>
+
+                    <h2 id="reportedIssues">
+                        0
+                    </h2>
+
+                    <small>
+                        Technical Issues
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- MY REPORTED ACTIVITIES -->
+
+        <section class="content-panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    My Reported Activities
+                </h2>
+
+            </div>
+
+            <div id="activitiesContainer">
+
+                <div class="activity-card">
+
+                    <h3>
+                        No Activity Records Found
+                    </h3>
+
+                    <p>
+                        Activities reported by this household
+                        will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="Resident.js"></script>
+
+</body>
+</html>

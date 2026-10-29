@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Reporting</title>
+
+    <link rel="stylesheet" href="Activities.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <main class="activities-content">
+
+        <!-- ===================================== -->
+        <!-- HEADER -->
+        <!-- ===================================== -->
+
+        <div class="topbar">
+
+            <div>
+
+                <h2>Activity Reporting</h2>
+
+                <p>
+                    Report village activities for review
+                    by your Induna.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ===================================== -->
+        <!-- REPORT ACTIVITY -->
+        <!-- ===================================== -->
+
+        <section class="content-panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    Report Activity
+                </h2>
+
+            </div>
+
+            <form id="activityForm">
+
+                <div class="grid-2">
+
+                    <div class="field-group">
+
+                        <label>
+                            Activity Type *
+                        </label>
+
+                        <select
+                            id="activityTypeId"
+                            required>
+
+                            <option value="">
+                                Loading Activities...
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="field-group">
+
+                        <label>
+                            Activity Date *
+                        </label>
+
+                        <input
+                            type="date"
+                            id="activityDate"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <div class="field-group">
+
+                    <label>
+                        Description *
+                    </label>
+
+                    <textarea
+                        id="description"
+                        rows="6"
+                        required></textarea>
+
+                </div>
+
+                <div class="button-area">
+
+                    <button
+                        type="submit"
+                        id="submitActivityBtn">
+
+                        Submit Activity
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- ===================================== -->
+        <!-- MY REPORTED ACTIVITIES -->
+        <!-- ===================================== -->
+
+        <section class="content-panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    My Reported Activities
+                </h2>
+
+            </div>
+
+            <div id="activitiesContainer">
+
+                <div class="activity-card">
+
+                    <h3>
+                        No Activities Found
+                    </h3>
+
+                    <p>
+                        Activities reported by this
+                        household will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="Activities.js"></script>
+
+</body>
+</html>

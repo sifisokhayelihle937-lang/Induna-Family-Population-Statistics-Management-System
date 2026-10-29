@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITAdmin Dashboard</title>
+
+    <link rel="stylesheet" href="Admin.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- ========================= -->
+        <!-- SIDEBAR -->
+        <!-- ========================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo-section">
+                <h2>IPMS</h2>
+                <span>Village Administration</span>
+            </div>
+
+            <ul class="menu">
+
+                <!-- DASHBOARD -->
+
+                <li class="active">
+                    <a href="Admin.html">
+                        <i class="fas fa-chart-line"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <!-- INDUNAS -->
+
+                <li>
+
+                    <a href="#" id="indunasMenu">
+
+                        <i class="fas fa-crown"></i>
+
+                        Indunas
+
+                        <span class="arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+
+                    </a>
+
+                    <ul
+                        class="submenu"
+                        id="indunasSubmenu">
+
+                        <li>
+                            <a href="Indunas.html">
+                                Manage
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <!-- HELPDESK -->
+
+                <li>
+
+                    <a href="#" id="helpdeskMenu">
+
+                        <i class="fas fa-screwdriver-wrench"></i>
+
+                        Helpdesk
+
+                        <span class="arrow">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+
+                    </a>
+
+                    <ul
+                        class="submenu"
+                        id="helpdeskSubmenu">
+
+                        <li>
+                            <a href="Helpdesk.html">
+                                Manage
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <!-- MY PROFILE -->
+
+                <li>
+                    <a href="Profile.html">
+                        <i class="fas fa-user"></i>
+                        My Profile
+                    </a>
+                </li>
+
+                <!-- LOGOUT -->
+
+                <li>
+                    <a href="#" onclick="logout()">
+                        <i class="fas fa-right-from-bracket"></i>
+                        Logout
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+        <!-- ========================= -->
+        <!-- MAIN CONTENT -->
+        <!-- ========================= -->
+
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+
+            <div class="topbar">
+
+                <h2>ITAdmin Dashboard</h2>
+
+                <div class="profile-section">
+
+                    <i class="fas fa-user-circle"></i>
+
+                    <span id="adminName">
+                        Loading...
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- WELCOME BANNER -->
+
+            <section class="welcome-banner">
+
+                <div class="welcome-icon">
+                    <i class="fas fa-house"></i>
+                </div>
+
+                <div>
+
+                    <h2>
+                        Welcome Back,
+                        <span id="welcomeName">
+                            Loading...
+                        </span>
+                    </h2>
+
+                    <p>
+                        You are currently managing
+                        <strong id="assignedVillage">
+                            Loading...
+                        </strong>
+                        village administration.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- DASHBOARD CARDS -->
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+
+                    <div class="stat-details">
+
+                        <h4>Total Population</h4>
+
+                        <h2 id="totalPopulation">
+                            0
+                        </h2>
+
+                        <small>
+                            Registered Residents
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fas fa-house"></i>
+                    </div>
+
+                    <div class="stat-details">
+
+                        <h4>Total Households</h4>
+
+                        <h2 id="totalHouseholds">
+                            0
+                        </h2>
+
+                        <small>
+                            Active Households
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fas fa-location-dot"></i>
+                    </div>
+
+                    <div class="stat-details">
+
+                        <h4>Village</h4>
+
+                        <h2 id="villageName">
+                            Loading...
+                        </h2>
+
+                        <small>
+                            Assigned Area
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="fas fa-ticket"></i>
+                    </div>
+
+                    <div class="stat-details">
+
+                        <h4>Open Tickets</h4>
+
+                        <h2 id="openTickets">
+                            0
+                        </h2>
+
+                        <small>
+                            Pending Issues
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- RECENT REGISTRATIONS -->
+
+            <section class="content-panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Recent Household Registrations
+                    </h2>
+
+                </div>
+
+                <div id="householdContainer">
+
+                    <div class="household-item">
+
+                        <h3>
+                            No household registrations found
+                        </h3>
+
+                        <p>
+                            Household registrations from your
+                            village will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="Admin.js"></script>
+
+</body>
+
+</html> 

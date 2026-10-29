@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Family Management</title>
+<link rel="stylesheet" href="Families.css">
+    
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="page-container">
+
+        <!-- PAGE HEADER -->
+
+        <div class="topbar">
+
+            <h2>
+
+                Family Management
+
+            </h2>
+
+        </div>
+
+        <!-- HOUSEHOLDS TABLE -->
+
+        <section class="content-panel">
+
+            <div class="panel-header">
+
+                <h2>
+
+                    Village Households
+
+                </h2>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                House Number
+                            </th>
+
+                            <th>
+                                Head Of Household
+                            </th>
+
+                            <th>
+                                Family Size
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="householdsTableBody">
+
+                        <tr>
+
+                            <td colspan="5">
+
+                                No households found.
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- HOUSEHOLD DETAILS MODAL -->
+    <!-- ===================================== -->
+
+    <div
+        class="modal"
+        id="householdModal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2>
+
+                    Household Details
+
+                </h2>
+
+                <button
+                    type="button"
+                    class="close-btn"
+                    onclick="closeModal()">
+
+                    ✖
+
+                </button>
+
+            </div>
+
+            <!-- HOUSEHOLD INFO -->
+
+            <div class="info-grid">
+
+                <div class="field-group">
+
+                    <label>
+
+                        House Number
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="houseNumber"
+                        readonly>
+
+                </div>
+
+                <div class="field-group">
+
+                    <label>
+
+                        Current Head
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="currentHead"
+                        readonly>
+
+                </div>
+
+            </div>
+
+            <!-- FAMILY MEMBERS -->
+
+            <div class="panel-header">
+
+                <h3>
+
+                    Family Members
+
+                </h3>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Full Name
+                            </th>
+
+                            <th>
+                                Relationship
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Date Joined
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody
+                        id="membersTableBody">
+
+                        <tr>
+
+                            <td colspan="4">
+
+                                No members found.
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- TRANSFER HEADSHIP -->
+
+            <div class="transfer-section">
+
+                <h3>
+
+                    Transfer Household Responsibility
+
+                </h3>
+
+                <input
+                    type="hidden"
+                    id="householdId">
+
+                <div class="field-group">
+
+                    <label>
+
+                        New Head
+
+                    </label>
+
+                    <select
+                        id="newHeadId">
+
+                        <option value="">
+
+                            Select Member
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="field-group">
+
+                    <label>
+
+                        Reason
+
+                    </label>
+
+                    <select
+                        id="changeReason">
+
+                        <option value="">
+
+                            Select Reason
+
+                        </option>
+
+                        <option value="Household Decision">
+                            Household Decision
+                        </option>
+
+                        <option value="Retirement">
+                            Retirement
+                        </option>
+
+                        <option value="Relocation">
+                            Relocation
+                        </option>
+
+                        <option value="Deceased">
+                            Deceased
+                        </option>
+
+                        <option value="Administrative Correction">
+                            Administrative Correction
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="button-area">
+
+                    <button
+                        type="button"
+                        id="saveHeadChangeBtn">
+
+                        Save Head Change
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ===================================== -->
+<!-- ACCOUNT STATUS MODAL -->
+<!-- ===================================== -->
+
+<div
+    class="modal"
+    id="statusModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>
+                Update Head Account Status
+            </h2>
+
+            <button
+                type="button"
+                class="close-btn"
+                onclick="closeStatusModal()">
+
+                ✖
+
+            </button>
+
+        </div>
+
+        <input
+            type="hidden"
+            id="statusHouseholdId">
+
+        <div class="field-group">
+
+            <label>
+                Account Status
+            </label>
+
+            <select id="accountStatus">
+
+                <option value="1">
+                    Active
+                </option>
+
+                <option value="2">
+                    Inactive
+                </option>
+
+                <option value="3">
+                    Suspended
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="button-area">
+
+            <button
+                type="button"
+                id="saveAccountStatusBtn"
+                onclick="saveAccountStatus()">
+
+                Save Status
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <script src="Families.js"></script>
+
+</body>
+
+</html>

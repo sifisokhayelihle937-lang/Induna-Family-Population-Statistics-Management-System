@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Induna Population Management System</title>
+    <!-- Mapped cleanly to your login.css file -->
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Section (Banner Info) -->
+        <div class="left-section">
+            <div class="logo-area">
+                <!-- System Logo Badge -->
+                <img src="logo.jpeg" alt="System Crest" class="top-logo" onerror="this.src='https://placeholder.com'">
+                <h2>Induna Population Management System</h2>
+                <p class="tagline">Empowering Traditional Leadership.<br>Building Stronger Communities.</p>
+            </div>
+            
+            <div class="king-profile">
+                <div class="avatar-ring">
+                    <!-- Points directly to your image asset listed in the sidebar -->
+                    <img src="king-login.png" alt="His Majesty King Misizulu" onerror="this.src='https://placeholder.com'">
+                </div>
+                <h3>His Majesty <br><strong>King Misizulu kaZwelithini</strong></h3>
+                <p class="subtext">AmaZulu King</p>
+            </div>
+
+            <div class="info-card">
+                <p>ℹ️ This system helps Indunas and traditional council staff capture, manage, and report household demographic data for their communities in one secure place.</p>
+            </div>
+
+            <div class="footer-badges">
+                <span>Space ✅ Secure</span>
+                <span>Reliable</span>
+                <span>Trusted</span>
+            </div>
+        </div>
+
+        <!-- Right Section (Login Card) -->
+        <div class="right-section">
+            <div class="login-card">
+                <h1>Induna Family Demographic</h1>
+                <p class="stats-label">POPULATION STATISTICS</p>
+                <p class="welcome-text">Welcome back! Please login to continue.</p>
+
+                <form id="loginForm">
+                    <div class="input-group">
+                        <span class="icon">✉️</span>
+                        <input type="text" id="username" placeholder="e.g. induna2@village.gov.za" required>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="icon">🔑</span>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember username</label>
+                    </div>
+
+                    <button type="submit" id="loginBtn">Sign In</button>
+                </form>
+
+                <div class="card-links">
+                    <a href="Register.html">Register as Resident</a>
+                    <span>|</span>
+                    <a href="ForgotPassword.html">Forgot Password</a>
+                </div>
+            </div>
+            <p class="copyright">©️ 2026 Traditional Council System. All rights reserved.</p>
+        </div>
+    </div>
+
+    <!-- Mapped cleanly to your fresh login.js file -->
+    <script src="login.js"></script>
+</body>
+</html>

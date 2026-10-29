@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Support</title>
+
+    <link rel="stylesheet" href="Issues.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <main class="issues-content">
+
+        <!-- ===================================== -->
+        <!-- HEADER -->
+        <!-- ===================================== -->
+
+        <div class="topbar">
+
+            <div>
+
+                <h2>Technical Support</h2>
+
+                <p>
+                    Report technical issues and track
+                    support responses.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ===================================== -->
+        <!-- REPORT ISSUE -->
+        <!-- ===================================== -->
+
+        <section class="content-panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    Report Technical Issue
+                </h2>
+
+            </div>
+
+            <form id="issueForm">
+
+                <div class="field-group">
+
+                    <label>
+                        Issue Category *
+                    </label>
+
+                    <select
+                        id="issueCategoryId"
+                        required>
+
+                        <option value="">
+                            Loading Categories...
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="field-group">
+
+                    <label>
+                        Subject *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="subject"
+                        maxlength="150"
+                        required>
+
+                </div>
+
+                <div class="field-group">
+
+                    <label>
+                        Issue Description *
+                    </label>
+
+                    <textarea
+                        id="bugDetails"
+                        rows="6"
+                        required></textarea>
+
+                </div>
+
+                <div class="button-area">
+
+                    <button
+                        type="submit"
+                        id="submitIssueBtn">
+
+                        Submit Ticket
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- ===================================== -->
+        <!-- MY REPORTED ISSUES -->
+        <!-- ===================================== -->
+
+        <section class="content-panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    My Reported Issues
+                </h2>
+
+            </div>
+
+            <div id="issuesContainer">
+
+                <div class="issue-card">
+
+                    <h3>
+                        No Issues Found
+                    </h3>
+
+                    <p>
+                        Support tickets submitted by
+                        this household will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="Issues.js"></script>
+
+</body>
+</html>

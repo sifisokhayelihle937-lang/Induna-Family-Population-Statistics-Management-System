@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Activity Management</title>
+
+    <link rel="stylesheet" href="ActivityReviews.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="page-container">
+
+        <!-- ===================================== -->
+        <!-- HEADER -->
+        <!-- ===================================== -->
+
+        <div class="topbar">
+
+            <h2>
+
+                Activity Management
+
+            </h2>
+
+        </div>
+
+        <!-- ===================================== -->
+        <!-- ACTIVITIES TABLE -->
+        <!-- ===================================== -->
+
+        <section class="content-panel">
+
+            <div class="panel-header">
+
+                <h2>
+
+                    Village Activities
+
+                </h2>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                House Number
+                            </th>
+
+                            <th>
+                                Resident
+                            </th>
+
+                            <th>
+                                Activity Type
+                            </th>
+
+                            <th>
+                                Activity Date
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody
+                        id="activitiesTableBody">
+
+                        <tr>
+
+                            <td colspan="6">
+
+                                No activities found.
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- REVIEW MODAL -->
+    <!-- ===================================== -->
+
+    <div
+        class="modal"
+        id="reviewModal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2>
+
+                    Activity Review
+
+                </h2>
+
+                <button
+                    type="button"
+                    class="close-btn"
+                    onclick="closeModal()">
+
+                    ✖
+
+                </button>
+
+            </div>
+
+            <input
+                type="hidden"
+                id="activityId">
+
+            <!-- ACTIVITY DETAILS -->
+
+            <div class="info-grid">
+
+                <div class="field-group">
+
+                    <label>
+
+                        House Number
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="houseNumber"
+                        readonly>
+
+                </div>
+
+                <div class="field-group">
+
+                    <label>
+
+                        Resident
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="residentName"
+                        readonly>
+
+                </div>
+
+                <div class="field-group">
+
+                    <label>
+
+                        Activity Type
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="activityType"
+                        readonly>
+
+                </div>
+
+                <div class="field-group">
+
+                    <label>
+
+                        Activity Date
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="activityDate"
+                        readonly>
+
+                </div>
+
+            </div>
+
+            <!-- DESCRIPTION -->
+
+            <div class="field-group">
+
+                <label>
+
+                    Description
+
+                </label>
+
+                <textarea
+                    id="activityDescription"
+                    rows="5"
+                    readonly></textarea>
+
+            </div>
+
+            <!-- REVIEW STATUS -->
+
+            <div class="field-group">
+
+                <label>
+
+                    Review Status
+
+                </label>
+
+                <select
+                    id="activityStatusId">
+
+                    <option value="1">
+                        Reported
+                    </option>
+
+                    <option value="2">
+                        Approved
+                    </option>
+
+                    <option value="3">
+                        Rejected
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- COMMENT -->
+
+            <div class="field-group">
+
+                <label>
+
+                    Review Comment
+
+                </label>
+
+                <textarea
+                    id="reviewComment"
+                    rows="5"></textarea>
+
+            </div>
+
+            <!-- ACTIONS -->
+
+            <div class="button-area">
+
+                <button
+                    type="button"
+                    id="saveReviewBtn">
+
+                    Save Review
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="ActivityReviews.js"></script>
+
+</body>
+
+</html>

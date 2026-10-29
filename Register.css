@@ -1,0 +1,548 @@
+/* =====================================================
+   INDUNA POPULATION MANAGEMENT SYSTEM
+   HOUSEHOLD REGISTRATION FORM
+   FULL-SCREEN RESPONSIVE DESIGN
+===================================================== */
+
+:root {
+    --green: #00497f;
+    --green-dark: #003a66;
+    --green-light: #e8f1fa;
+    --gold: #8c763d;
+    --white: #ffffff;
+    --bg: #f1f4f8;
+    --dark: #1b2430;
+    --muted: #66727f;
+    --border: #e3e8ee;
+    --input-bg: #fafafa;
+    --shadow: 0 2px 10px rgba(16, 36, 64, 0.08);
+    --radius: 12px;
+}
+
+/* =====================================================
+   RESET AND PAGE
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    color: var(--dark);
+    background: #f1f4f8;
+    line-height: 1.4;
+}
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.register-container {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    padding: 16px 22px;
+    background: var(--bg);
+    overflow: hidden;
+}
+
+.registration-main {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+}
+
+/* =====================================================
+   FORM STRUCTURE
+===================================================== */
+
+#residentSignupForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+}
+
+.form-layout {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(0, 0.9fr);
+    grid-template-rows:
+        minmax(0, 1fr)
+        auto;
+    gap: 16px;
+}
+
+/* =====================================================
+   FORM CARDS
+===================================================== */
+
+.form-card {
+    min-width: 0;
+    min-height: 0;
+    padding: 18px 22px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.form-card h2 {
+    color: var(--green-dark);
+    font-size: 17px;
+    font-weight: 750;
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* PERSONAL INFORMATION */
+
+.personal-card {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+/* PROPERTY INFORMATION */
+
+.property-card {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+/* ACCOUNT INFORMATION */
+
+.account-card {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding-top: 14px;
+    padding-bottom: 10px;
+}
+
+.account-fields {
+    width: 100%;
+    min-width: 0;
+}
+
+/* =====================================================
+   FIELD GRIDS
+===================================================== */
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 14px;
+    row-gap: 0;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+/* =====================================================
+   FORM FIELDS
+===================================================== */
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin-bottom: 12px;
+}
+
+.field-group label {
+    color: #3b4756;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.field-group input,
+.field-group select,
+.field-group textarea {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 38px;
+    padding: 8px 10px;
+    color: var(--dark);
+    background: var(--input-bg);
+    border: 1px solid #dde3ea;
+    border-radius: 7px;
+    font-size: 13px;
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.field-group input::placeholder,
+.field-group textarea::placeholder {
+    color: #84909c;
+}
+
+.field-group input:hover,
+.field-group select:hover,
+.field-group textarea:hover {
+    border-color: #9bb8d3;
+}
+
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+    outline: none;
+    background: var(--white);
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(0, 90, 158, 0.14);
+}
+
+.field-group textarea {
+    height: 62px;
+    min-height: 62px;
+    resize: vertical;
+}
+
+.field-group input:disabled,
+.field-group select:disabled {
+    background: #eef2f6;
+    color: var(--muted);
+    cursor: not-allowed;
+}
+
+/* =====================================================
+   PROPERTY FIELD SPACING
+===================================================== */
+
+.property-card .field-group {
+    margin-bottom: 11px;
+}
+
+.property-card .location-description textarea {
+    height: 62px;
+    min-height: 62px;
+}
+
+/* =====================================================
+   ACCOUNT FIELD SPACING
+===================================================== */
+
+.account-card .grid-2 {
+    column-gap: 16px;
+    row-gap: 0;
+}
+
+.account-card .field-group {
+    margin-bottom: 8px;
+}
+
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
+
+.button-area {
+    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 14px;
+}
+
+#registerBtn,
+#cancelBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    height: 44px;
+    padding: 8px 18px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* REGISTER BUTTON */
+
+#registerBtn {
+    color: var(--white);
+    background: linear-gradient(135deg, #003a66, #005a9e);
+    border: 1px solid var(--green);
+}
+
+#registerBtn:hover {
+    background: var(--green-dark);
+    border-color: var(--green-dark);
+    transform: translateY(-1px);
+}
+
+#registerBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* CANCEL BUTTON */
+
+#cancelBtn {
+    color: var(--dark);
+    background: var(--white);
+    border: 1px solid #cfd6de;
+}
+
+#cancelBtn:hover {
+    background: #eef2f6;
+    border-color: #9fb0c0;
+}
+
+/* =====================================================
+   MEDIUM DESKTOP SCREENS
+===================================================== */
+
+@media (min-width: 701px) and (max-width: 1100px) {
+    .register-container {
+        padding: 12px;
+    }
+
+    .form-layout {
+        gap: 12px;
+    }
+
+    .form-card {
+        padding: 13px;
+    }
+
+    .form-card h2 {
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+
+    .grid-2 {
+        column-gap: 10px;
+    }
+
+    .field-group {
+        margin-bottom: 8px;
+    }
+
+    .field-group label {
+        font-size: 11px;
+    }
+
+    .field-group input,
+    .field-group select {
+        height: 34px;
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    .field-group textarea {
+        height: 50px;
+        min-height: 50px;
+    }
+
+    .property-card .field-group {
+        margin-bottom: 7px;
+    }
+
+    .button-area {
+        margin-top: 10px;
+    }
+
+    #registerBtn,
+    #cancelBtn {
+        height: 40px;
+    }
+}
+
+/* =====================================================
+   SHORT DESKTOP SCREENS
+===================================================== */
+
+@media (min-width: 701px) and (max-height: 760px) {
+    .register-container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .form-layout {
+        gap: 10px;
+    }
+
+    .form-card {
+        padding-top: 12px;
+        padding-bottom: 9px;
+    }
+
+    .form-card h2 {
+        padding-bottom: 6px;
+        margin-bottom: 9px;
+    }
+
+    .field-group {
+        margin-bottom: 7px;
+    }
+
+    .field-group label {
+        margin-bottom: 3px;
+    }
+
+    .field-group input,
+    .field-group select {
+        height: 33px;
+    }
+
+    .field-group textarea,
+    .property-card .location-description textarea {
+        height: 48px;
+        min-height: 48px;
+    }
+
+    .property-card .field-group {
+        margin-bottom: 7px;
+    }
+
+    .account-card .field-group {
+        margin-bottom: 5px;
+    }
+
+    .button-area {
+        margin-top: 9px;
+    }
+
+    #registerBtn,
+    #cancelBtn {
+        height: 39px;
+    }
+}
+
+/* =====================================================
+   MOBILE
+   Scrolling is enabled so all fields remain accessible.
+===================================================== */
+
+@media (max-width: 700px) {
+    html,
+    body {
+        height: auto;
+        min-height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .register-container {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 12px;
+        overflow: visible;
+    }
+
+    .registration-main {
+        height: auto;
+        overflow: visible;
+    }
+
+    #residentSignupForm {
+        height: auto;
+    }
+
+    .form-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto;
+        gap: 12px;
+    }
+
+    .personal-card,
+    .property-card,
+    .account-card {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .form-card {
+        height: auto;
+        padding: 17px 15px;
+        overflow: visible;
+    }
+
+    .form-card h2 {
+        font-size: 16px;
+        margin-bottom: 13px;
+    }
+
+    .grid-2,
+    .grid-3,
+    .account-card .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+        column-gap: 0;
+    }
+
+    .field-group {
+        margin-bottom: 12px;
+    }
+
+    .field-group label {
+        font-size: 12px;
+    }
+
+    .field-group input,
+    .field-group select {
+        height: 40px;
+        font-size: 13px;
+    }
+
+    .field-group textarea,
+    .property-card .location-description textarea {
+        height: 75px;
+        min-height: 75px;
+    }
+
+    .button-area {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 12px;
+    }
+
+    #registerBtn,
+    #cancelBtn {
+        height: 44px;
+    }
+}
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

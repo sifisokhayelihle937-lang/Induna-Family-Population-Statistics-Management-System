@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Induna Dashboard</title>
+
+    <link rel="stylesheet" href="Induna.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="logo-section">
+        <h2>IPMS</h2>
+        <span>Induna Portal</span>
+    </div>
+
+    <ul class="menu">
+
+        <!-- DASHBOARD -->
+        <li class="active">
+            <a href="Induna.html">
+                <i class="fas fa-chart-line"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <!-- FAMILIES -->
+        <li>
+            <a href="#" id="familiesMenu">
+                <i class="fas fa-users"></i>
+                Families
+
+                <span class="arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </span>
+            </a>
+
+            <ul class="submenu" id="familiesSubmenu">
+                <li>
+                    <a href="Families.html">
+                        Manage
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- ACTIVITIES -->
+        <li>
+            <a href="#" id="activitiesMenu">
+                <i class="fas fa-calendar-alt"></i>
+                Activities
+
+                <span class="arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </span>
+            </a>
+
+            <ul class="submenu" id="activitiesSubmenu">
+                <li>
+                    <a href="ActivityReviews.html">
+                        Manage
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- STATISTICS -->
+        <li>
+            <a href="Statistics.html">
+                <i class="fas fa-chart-pie"></i>
+                Statistics
+            </a>
+        </li>
+
+        <!-- MY PROFILE -->
+        <li>
+            <a href="Profile.html">
+                <i class="fas fa-user"></i>
+                My Profile
+            </a>
+        </li>
+
+        <!-- LOGOUT -->
+        <li>
+            <a href="#" onclick="logout()">
+                <i class="fas fa-right-from-bracket"></i>
+                Logout
+            </a>
+        </li>
+
+    </ul>
+
+</aside>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <h2>
+                Induna Dashboard
+            </h2>
+
+            <div
+                class="profile-chip"
+                id="indunaName">
+
+                Loading...
+
+            </div>
+
+        </div>
+
+        <!-- WELCOME -->
+
+        <section class="welcome-banner">
+
+            <div>
+
+                <h2>
+
+                    Welcome Back,
+                    <span id="welcomeName">
+
+                        Loading...
+
+                    </span>
+
+                </h2>
+
+                <p>
+
+                    You are currently serving
+
+                    <strong id="assignedVillage">
+
+                        Loading...
+
+                    </strong>
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- DASHBOARD CARDS -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fas fa-users"></i>
+
+                </div>
+
+                <div class="stat-details">
+
+                    <h4>
+                        Total Families
+                    </h4>
+
+                    <h2 id="totalFamilies">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fas fa-user-friends"></i>
+
+                </div>
+
+                <div class="stat-details">
+
+                    <h4>
+                        Total Residents
+                    </h4>
+
+                    <h2 id="totalResidents">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fas fa-calendar-check"></i>
+
+                </div>
+
+                <div class="stat-details">
+
+                    <h4>
+                        Reported Activities
+                    </h4>
+
+                    <h2 id="reportedActivities">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fas fa-location-dot"></i>
+
+                </div>
+
+                <div class="stat-details">
+
+                    <h4>
+                        Village
+                    </h4>
+
+                    <h2 id="villageName">
+                        Loading...
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RECENT ACTIVITIES -->
+
+        <section class="content-panel">
+
+            <div class="panel-header">
+
+                <h2>
+
+                    Recent Activity Reports
+
+                </h2>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>House Number</th>
+
+                            <th>Activity Type</th>
+
+                            <th>Activity Date</th>
+
+                            <th>Status</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="activitiesTableBody">
+
+                        <tr>
+
+                            <td colspan="5">
+
+                                No activity reports found.
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="Induna.js"></script>
+
+</body>
+</html>

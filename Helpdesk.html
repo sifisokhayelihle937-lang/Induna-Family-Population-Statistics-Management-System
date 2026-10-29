@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpdesk Centre</title>
+
+    <link rel="stylesheet" href="Helpdesk.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <!-- ===================================== -->
+    <!-- HEADER -->
+    <!-- ===================================== -->
+
+    <div class="topbar">
+
+        <div>
+            <h2>Helpdesk Centre</h2>
+            <p>
+                Manage and resolve technical support tickets.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- SUMMARY -->
+    <!-- ===================================== -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <h4>Open Tickets</h4>
+            <h2 id="openTickets">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <h4>In Progress</h4>
+            <h2 id="progressTickets">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <h4>Resolved</h4>
+            <h2 id="resolvedTickets">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <h4>Closed</h4>
+            <h2 id="closedTickets">0</h2>
+        </div>
+
+    </section>
+
+    <!-- ===================================== -->
+    <!-- TICKETS TABLE -->
+    <!-- ===================================== -->
+
+    <section class="content-panel">
+
+        <div class="panel-header">
+
+            <h2>
+                Support Tickets
+            </h2>
+
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Ticket ID</th>
+
+                        <th>Resident</th>
+
+                        <th>Category</th>
+
+                        <th>Subject</th>
+
+                        <th>Status</th>
+
+                        <th>Date Logged</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="ticketsTableBody">
+
+                    <tr>
+
+                        <td colspan="7">
+                            No tickets found.
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- ===================================== -->
+<!-- REVIEW MODAL -->
+<!-- ===================================== -->
+
+<div
+    class="modal"
+    id="reviewModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>
+                Review Ticket
+            </h2>
+
+            <button
+                type="button"
+                class="close-btn"
+                onclick="closeModal()">
+
+                ✖
+
+            </button>
+
+        </div>
+
+        <input
+            type="hidden"
+            id="ticketId">
+
+        <!-- RESIDENT -->
+
+        <div class="field-group">
+
+            <label>
+                Resident
+            </label>
+
+            <input
+                type="text"
+                id="residentName"
+                readonly>
+
+        </div>
+
+        <!-- CATEGORY -->
+
+        <div class="field-group">
+
+            <label>
+                Category
+            </label>
+
+            <input
+                type="text"
+                id="categoryName"
+                readonly>
+
+        </div>
+
+        <!-- SUBJECT -->
+
+        <div class="field-group">
+
+            <label>
+                Subject
+            </label>
+
+            <input
+                type="text"
+                id="subject"
+                readonly>
+
+        </div>
+
+        <!-- DESCRIPTION -->
+
+        <div class="field-group">
+
+            <label>
+                Issue Description
+            </label>
+
+            <textarea
+                id="bugDetails"
+                rows="5"
+                readonly></textarea>
+
+        </div>
+
+        <!-- STATUS -->
+
+        <div class="field-group">
+
+            <label>
+                Ticket Status
+            </label>
+
+            <select id="ticketStatusId">
+
+                <option value="1">
+                    Open
+                </option>
+
+                <option value="2">
+                    In Progress
+                </option>
+
+                <option value="3">
+                    Resolved
+                </option>
+
+                <option value="4">
+                    Closed
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- SOLUTION -->
+
+        <div class="field-group">
+
+            <label>
+                Support Response
+            </label>
+
+            <textarea
+                id="adminSolution"
+                rows="5"></textarea>
+
+        </div>
+
+        <!-- BUTTONS -->
+
+        <div class="button-area">
+
+            <button
+                type="button"
+                id="saveResolutionBtn">
+
+                Save Resolution
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="Helpdesk.js"></script>
+
+</body>
+</html>
